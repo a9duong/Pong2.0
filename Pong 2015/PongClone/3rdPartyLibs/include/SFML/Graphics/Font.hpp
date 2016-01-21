@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////
 //
 // SFML - Simple and Fast Multimedia Library
-// Copyright (C) 2007-2015 Laurent Gomila (laurent@sfml-dev.org)
+// Copyright (C) 2007-2014 Laurent Gomila (laurent.gom@gmail.com)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -95,10 +95,6 @@ public:
     /// fonts installed on the user's system, thus you can't
     /// load them directly.
     ///
-    /// \warning SFML cannot preload all the font data in this
-    /// function, so the file has to remain accessible until
-    /// the sf::Font object loads a new font or is destroyed.
-    ///
     /// \param filename Path of the font file to load
     ///
     /// \return True if loading succeeded, false if it failed
@@ -113,11 +109,9 @@ public:
     ///
     /// The supported font formats are: TrueType, Type 1, CFF,
     /// OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR and Type 42.
-    ///
-    /// \warning SFML cannot preload all the font data in this
+    /// Warning: SFML cannot preload all the font data in this
     /// function, so the buffer pointed by \a data has to remain
-    /// valid until the sf::Font object loads a new font or
-    /// is destroyed.
+    /// valid as long as the font is used.
     ///
     /// \param data        Pointer to the file data in memory
     /// \param sizeInBytes Size of the data to load, in bytes
@@ -137,10 +131,6 @@ public:
     /// Warning: SFML cannot preload all the font data in this
     /// function, so the contents of \a stream have to remain
     /// valid as long as the font is used.
-    ///
-    /// \warning SFML cannot preload all the font data in this
-    /// function, so the stream has to remain accessible until
-    /// the sf::Font object loads a new font or is destroyed.
     ///
     /// \param stream Source stream to read from
     ///
@@ -288,7 +278,7 @@ private:
         Page();
 
         GlyphTable       glyphs;  ///< Table mapping code points to their corresponding glyph
-        Texture          texture; ///< Texture containing the pixels of the glyphs
+        sf::Texture      texture; ///< Texture containing the pixels of the glyphs
         unsigned int     nextRow; ///< Y position of the next new row in the texture
         std::vector<Row> rows;    ///< List containing the position of all the existing rows
     };
@@ -414,7 +404,7 @@ private:
 /// sf::Text text2;
 /// text2.setFont(font);
 /// text2.setCharacterSize(50);
-/// text2.setStyle(sf::Text::Italic);
+/// text1.setStyle(sf::Text::Italic);
 /// \endcode
 ///
 /// Apart from loading font files, and passing them to instances

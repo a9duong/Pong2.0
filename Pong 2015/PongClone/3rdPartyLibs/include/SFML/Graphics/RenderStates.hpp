@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////
 //
 // SFML - Simple and Fast Multimedia Library
-// Copyright (C) 2007-2015 Laurent Gomila (laurent@sfml-dev.org)
+// Copyright (C) 2007-2014 Laurent Gomila (laurent.gom@gmail.com)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -150,7 +150,7 @@ public:
 /// directly without defining render states explicitly -- the
 /// default set of states is ok in most cases.
 /// \code
-/// window.draw(sprite);
+/// window.Draw(sprite);
 /// \endcode
 ///
 /// If you want to use a single specific render state,

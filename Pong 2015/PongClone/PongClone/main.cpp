@@ -1,3 +1,5 @@
+#include <Windows.h>
+
 #include "game_state.h"
 #include "main_menu.h"
 
@@ -6,7 +8,7 @@ bool quitGame = false;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Pong");
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Ping");
 
 	coreState.SetWindow(&window);
 	coreState.SetState(new main_menu());
@@ -34,6 +36,9 @@ int main()
 		{
 			window.close();
 		}
+
+		Sleep(5);
+
 	}
 
 	return 0;

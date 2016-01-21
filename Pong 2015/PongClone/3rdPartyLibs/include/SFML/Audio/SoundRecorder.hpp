@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////
 //
 // SFML - Simple and Fast Multimedia Library
-// Copyright (C) 2007-2015 Laurent Gomila (laurent@sfml-dev.org)
+// Copyright (C) 2007-2014 Laurent Gomila (laurent.gom@gmail.com)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -29,7 +29,6 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <SFML/Audio/Export.hpp>
-#include <SFML/Audio/AlResource.hpp>
 #include <SFML/System/Thread.hpp>
 #include <SFML/System/Time.hpp>
 #include <vector>
@@ -42,7 +41,7 @@ namespace sf
 /// \brief Abstract base class for capturing sound data
 ///
 ////////////////////////////////////////////////////////////
-class SFML_AUDIO_API SoundRecorder : AlResource
+class SFML_AUDIO_API SoundRecorder
 {
 public:
 
@@ -183,7 +182,7 @@ protected:
     /// \param interval Processing interval
     ///
     ////////////////////////////////////////////////////////////
-    void setProcessingInterval(Time interval);
+    void setProcessingInterval(sf::Time interval);
 
     ////////////////////////////////////////////////////////////
     /// \brief Start capturing audio data
@@ -260,7 +259,7 @@ private:
     Thread             m_thread;             ///< Thread running the background recording task
     std::vector<Int16> m_samples;            ///< Buffer to store captured samples
     unsigned int       m_sampleRate;         ///< Sample rate
-    Time               m_processingInterval; ///< Time period between calls to onProcessSamples
+    sf::Time           m_processingInterval; ///< Time period between calls to onProcessSamples
     bool               m_isCapturing;        ///< Capturing state
     std::string        m_deviceName;         ///< Name of the audio capture device
 };
